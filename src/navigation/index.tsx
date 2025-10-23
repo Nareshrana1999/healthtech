@@ -1,7 +1,7 @@
 // Main Navigation Container
 import React, { useEffect } from 'react';
 import { NavigationContainer, LinkingOptions } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as Linking from 'expo-linking';
 import * as Notifications from 'expo-notifications';
 
@@ -10,7 +10,7 @@ import { RootStackParamList } from './types';
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 // Deep linking configuration
 const linking: LinkingOptions<RootStackParamList> = {
@@ -82,6 +82,8 @@ export default function Navigation() {
         shouldShowAlert: true,
         shouldPlaySound: true,
         shouldSetBadge: true,
+        shouldShowBanner: true,
+        shouldShowList: true,
       }),
     });
 
@@ -89,7 +91,7 @@ export default function Navigation() {
     const subscription = Notifications.addNotificationResponseReceivedListener((response) => {
       const data = response.notification.request.content.data;
       // Navigation will be handled by deep linking
-      if (data.deepLink) {
+      if (data && typeof data.deepLink === 'string') {
         Linking.openURL(data.deepLink);
       }
     });
