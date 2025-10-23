@@ -1,30 +1,59 @@
 {
   "expo": {
-    "name": "HealthTechApp",
-    "slug": "HealthTechApp",
+    "name": "HealthTech",
+    "slug": "healthtech-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0066CC"
     },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.healthtech.app",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Camera access for profile photos",
+        "NSMicrophoneUsageDescription": "Microphone access for AI voice triage",
+        "NSPhotoLibraryUsageDescription": "Photo library access for uploading images",
+        "NSFaceIDUsageDescription": "Face ID for secure authentication"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0066CC"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.healthtech.app",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "NOTIFICATIONS",
+        "USE_BIOMETRIC"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-local-authentication",
+      ["expo-notifications", { "icon": "./assets/icon.png", "color": "#0066CC" }],
+      ["expo-av", { "microphonePermission": "Allow HealthTech to access microphone" }]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "healthtech-mobile-app"
+      }
     }
   }
 }
