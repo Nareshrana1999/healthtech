@@ -12,7 +12,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#0066CC"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.healthtech.app",
@@ -37,7 +39,11 @@
         "READ_EXTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE",
         "NOTIFICATIONS",
-        "USE_BIOMETRIC"
+        "USE_BIOMETRIC",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
       ]
     },
     "web": {
@@ -47,12 +53,23 @@
     "plugins": [
       "expo-secure-store",
       "expo-local-authentication",
-      ["expo-notifications", { "icon": "./assets/icon.png", "color": "#0066CC" }],
-      ["expo-av", { "microphonePermission": "Allow HealthTech to access microphone" }]
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#0066CC"
+        }
+      ],
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow HealthTech to access microphone"
+        }
+      ]
     ],
     "extra": {
       "eas": {
-        "projectId": "healthtech-mobile-app"
+        "projectId": "8a36197d-8f42-49cb-b8a1-2ac16b126fef"
       }
     }
   }
