@@ -76,13 +76,11 @@ Write-Host "2. Add to GitHub:" -ForegroundColor Cyan
 Write-Host "   Visit: https://github.com/Nareshrana1999/healthtech/settings/secrets/actions" -ForegroundColor White
 Write-Host "   Click 'New repository secret' → Name: EXPO_TOKEN → Paste token → Add secret" -ForegroundColor White
 Write-Host ""
-$response = Read-Host "Have you added EXPO_TOKEN to GitHub Secrets? (yes/no)"
+$response = Read-Host "Have you added EXPO_TOKEN to GitHub Secrets? Type 'yes' to continue or 'no' to skip"
 if ($response -ne "yes") {
     Write-Host ""
-    Write-Host "Please add EXPO_TOKEN first, then re-run this script." -ForegroundColor Yellow
-    Write-Host "Or skip GitHub Actions and build manually with: eas build --platform android" -ForegroundColor Cyan
+    Write-Host "Skipping EXPO_TOKEN check. You can add it later for automated builds." -ForegroundColor Yellow
     Write-Host ""
-    exit 0
 }
 Write-Host "✓ EXPO_TOKEN configured" -ForegroundColor Green
 Write-Host ""
@@ -109,7 +107,7 @@ switch ($choice) {
     }
     "2" {
         Write-Host ""
-        $version = Read-Host "Enter version number (e.g., 1.0.0)"
+        $version = Read-Host "Enter version number like 1.0.0"
         if (-not $version) {
             $version = "1.0.0"
         }
