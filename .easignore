@@ -1,0 +1,37 @@
+# Ignore build artifacts
+node_modules/
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Ignore local env
+.env*.local
+
+# Ignore documentation (not needed for build)
+*.md
+!README.md
+
+# Keep all source code
+!src/
+!assets/
+!App.tsx
+!app.json
+!eas.json
+!package.json
+!tsconfig.json
+!babel.config.js
